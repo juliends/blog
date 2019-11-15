@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+file = URI.open('https://meme.eq8.eu/noidea.jpg')
+article = Article.new(title: 'NES', body: "A great console")
+article.photos.attach(io: file, filename: 'some-image.jpg', content_type: 'image/jpg')
+# Here we write article.photo.attach(...) because we wrote has_one_attached :photo in app/models article.rb
+article.save
